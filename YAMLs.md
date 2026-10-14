@@ -14,3 +14,5 @@ You now have a new blank dashboard item.  Now to import a YAML file
   You should now see your new dashboard. It is still in edit mode, you can tweak some of the settings from here is you wish.
   When finished, click Done at the top right and it is in normal view mode.
 
+Note - if some of the data does not show and has something like "Entity not found" it will be because the data point or sensor (Entity) has a different name in your system.  
+You should be able to edit those "cards" and select the correct Entities as appropriate.
