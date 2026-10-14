@@ -1,0 +1,80 @@
+type: sections
+max_columns: 4
+title: By the numbers
+path: electricity-summary
+icon: mdi:flash
+sections:
+  - type: grid
+    cards:
+      - type: tile
+        entity: sensor.energizer_homepower_house_load
+        grid_options:
+          rows: auto
+          columns: full
+      - type: heading
+        icon: mdi:solar-power
+        heading: Solar
+        heading_style: title
+      - type: tile
+        entity: sensor.energizer_homepower_solar_pv_power
+        grid_options:
+          rows: auto
+          columns: full
+      - type: tile
+        entity: sensor.energizer_homepower_solar_generated_today
+        grid_options:
+          rows: auto
+          columns: full
+      - type: heading
+        icon: mdi:battery
+        heading: Battery
+        heading_style: title
+      - type: tile
+        entity: sensor.energizer_homepower_state_of_charge
+        grid_options:
+          rows: auto
+          columns: full
+      - type: tile
+        entity: sensor.energizer_homepower_charge_power
+        grid_options:
+          rows: auto
+          columns: full
+      - type: tile
+        entity: sensor.energizer_homepower_discharge_power
+        grid_options:
+          rows: auto
+          columns: full
+      - type: heading
+        icon: mdi:transmission-tower
+        heading: Grid
+        heading_style: title
+      - type: heading
+        icon: mdi:transmission-tower-import
+        heading: Export
+        heading_style: subtitle
+      - type: tile
+        entity: sensor.energizer_homepower_grid_export
+        grid_options:
+          rows: auto
+          columns: full
+      - type: tile
+        entity: sensor.energizer_homepower_grid_exported_today
+        grid_options:
+          rows: auto
+          columns: full
+      - type: heading
+        icon: mdi:transmission-tower-export
+        heading: Import
+        heading_style: subtitle
+      - type: tile
+        entity: sensor.energizer_homepower_grid_import
+        grid_options:
+          rows: auto
+          columns: full
+      - type: tile
+        entity: sensor.energizer_homepower_grid_imported_today
+        grid_options:
+          rows: auto
+          columns: full
+show_icon_and_title: true
+cards: []
