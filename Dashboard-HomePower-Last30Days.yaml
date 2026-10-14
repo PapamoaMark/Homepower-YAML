@@ -1,0 +1,64 @@
+type: sections
+max_columns: 4
+title: Last 30 days
+path: last-30-days
+icon: mdi:calendar-month-outline
+show_icon_and_title: true
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        icon: mdi:calendar-month-outline
+        heading: Last 30 days graphs
+        heading_style: title
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_solar_generated_today
+        title: KWh Solar Generated
+        days_to_show: 30
+        period: day
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        grid_options:
+          rows: auto
+        entities:
+          - sensor.energizer_homepower_state_of_charge
+        title: Max Battery Charge
+        days_to_show: 30
+        period: day
+        chart_type: bar
+        stat_types:
+          - max
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_exported_today
+        title: KWH Grid Exported
+        days_to_show: 30
+        period: day
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_imported_today
+        title: KWh Grid Imported
+        days_to_show: 30
+        period: day
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        grid_options:
+          columns: full
+        entities:
+          - sensor.energizer_homepower_house_load
+        title: Mean & Max House Load
+        days_to_show: 30
+        period: day
+        chart_type: bar
+        stat_types:
+          - mean
+          - max
+    column_span: 2

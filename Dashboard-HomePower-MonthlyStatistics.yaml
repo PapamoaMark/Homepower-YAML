@@ -1,0 +1,78 @@
+type: sections
+max_columns: 4
+title: Monthly statistics
+path: test-tab
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Stats for the month
+        icon: mdi:calendar-month
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_solar_generated_today
+        title: KWh Solar generated
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_solar_pv_power
+        title: Generated - mean for month
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - mean
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_exported_today
+        title: KWh Grid Exported
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_export
+        title: Export - mean for month
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - mean
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_imported_today
+        title: KWh Grid Imported
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - change
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_grid_import
+        title: Import - mean for month
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - mean
+      - type: statistics-graph
+        entities:
+          - sensor.energizer_homepower_house_load
+        title: Mean house load for month
+        days_to_show: 30
+        period: month
+        chart_type: bar
+        stat_types:
+          - mean
+    column_span: 2
+cards: []
+icon: mdi:calendar-month
+show_icon_and_title: true
