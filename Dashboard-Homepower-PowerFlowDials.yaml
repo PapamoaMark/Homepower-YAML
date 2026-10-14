@@ -1,0 +1,74 @@
+type: sections
+max_columns: 4
+title: Power flow dials
+path: power-flow-dials
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Power dials - now
+        heading_style: title
+      - type: heading
+        icon: ''
+        heading: Scale 0 to 100%
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_state_of_charge
+        name: Battery
+        min: 0
+        max: 100
+        needle: true
+        severity:
+          green: 50
+          yellow: 20
+          red: 0
+      - type: heading
+        icon: ''
+        heading: Scale -9000 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_battery_power
+        needle: true
+        max: 9000
+        severity:
+          green: -9000
+          yellow: 0
+          red: 4000
+        min: -9000
+      - type: heading
+        icon: ''
+        heading: Scale 0 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_solar_pv_power
+        needle: true
+        max: 9000
+        severity:
+          green: 4000
+          yellow: 1000
+          red: 0
+      - type: heading
+        icon: ''
+        heading: Scale -9000 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_grid_power
+        needle: true
+        max: 9000
+        severity:
+          green: -9000
+          yellow: 0
+          red: 4000
+        min: -9000
+      - type: heading
+        icon: ''
+        heading: Scale 0 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_house_load
+        needle: true
+        max: 9000
+        severity:
+          green: 0
+          yellow: 2000
+          red: 5000
