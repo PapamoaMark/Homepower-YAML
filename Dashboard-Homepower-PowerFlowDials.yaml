@@ -10,7 +10,19 @@ sections:
         heading_style: title
       - type: heading
         icon: ''
-        heading: Scale 0 to 100%
+        heading: Solar PV generation - Scale 0 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_solar_pv_power
+        needle: true
+        max: 9000
+        severity:
+          green: 4000
+          yellow: 1000
+          red: 0
+      - type: heading
+        icon: ''
+        heading: Battery state - Scale 0 to 100%
         heading_style: subtitle
       - type: gauge
         entity: sensor.energizer_homepower_state_of_charge
@@ -24,7 +36,7 @@ sections:
           red: 0
       - type: heading
         icon: ''
-        heading: Scale -9000 to 9000 Watts
+        heading: Battery power flow - Scale -9000 to 9000 Watts (-ve = charging)
         heading_style: subtitle
       - type: gauge
         entity: sensor.energizer_homepower_battery_power
@@ -37,19 +49,7 @@ sections:
         min: -9000
       - type: heading
         icon: ''
-        heading: Scale 0 to 9000 Watts
-        heading_style: subtitle
-      - type: gauge
-        entity: sensor.energizer_homepower_solar_pv_power
-        needle: true
-        max: 9000
-        severity:
-          green: 4000
-          yellow: 1000
-          red: 0
-      - type: heading
-        icon: ''
-        heading: Scale -9000 to 9000 Watts
+        heading: Grid power flow - Scale -9000 to 9000 Watts (-ve = export)
         heading_style: subtitle
       - type: gauge
         entity: sensor.energizer_homepower_grid_power
@@ -62,7 +62,7 @@ sections:
         min: -9000
       - type: heading
         icon: ''
-        heading: Scale 0 to 9000 Watts
+        heading: House load - Scale 0 to 9000 Watts
         heading_style: subtitle
       - type: gauge
         entity: sensor.energizer_homepower_house_load
