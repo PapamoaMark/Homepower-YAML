@@ -16,3 +16,10 @@ You now have a new blank dashboard item.  Now to import a YAML file
 
 Note - if some of the data does not show and has something like "Entity not found" it will be because the data point or sensor (Entity) has a different name in your system.  
 You should be able to edit those "cards" and select the correct Entities as appropriate.
+
+Prerequisites:- 
+Must have a Home Assistant appliance (lots of ways to achieve this, links in Sean Lewis's instructions).
+Must have Sean Lewis's Homepower integration installed.
+Link to Sean Lewis's GitHub - https://github.com/seanlewis/openhomepower-hass
+
+Possible gotcha - your system may have some of the sensors named differently, so you may have to edit the appropriate dashboard view and select the sensor entity from your system to get the correct one.
