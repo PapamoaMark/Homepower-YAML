@@ -1,0 +1,269 @@
+title: Power view on steroids
+path: homepowersteroids
+icon: mdi:home-battery
+type: sections
+max_columns: 4
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading: Now
+      - type: gauge
+        entity: sensor.energizer_homepower_state_of_charge
+        name: Battery
+        min: 0
+        max: 100
+        needle: true
+        severity:
+          green: 50
+          yellow: 20
+          red: 0
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: tile
+            entity: sensor.energizer_homepower_state_of_charge
+            name: Battery
+          - type: tile
+            entity: sensor.energizer_homepower_battery_power
+            name: Battery power
+          - type: tile
+            entity: sensor.energizer_homepower_solar_pv_power
+            name: Solar
+          - type: tile
+            entity: sensor.energizer_homepower_grid_power
+            name: Grid
+          - type: tile
+            entity: sensor.energizer_homepower_house_load
+            name: House
+      - type: entities
+        title: Power now
+        entities:
+          - entity: sensor.energizer_homepower_solar_pv_power
+            name: Solar
+          - entity: sensor.energizer_homepower_house_load
+            name: House
+          - entity: sensor.energizer_homepower_charge_power
+            name: Battery charging
+          - entity: sensor.energizer_homepower_discharge_power
+            name: Battery discharging
+          - entity: sensor.energizer_homepower_grid_import
+            name: Importing from grid
+          - entity: sensor.energizer_homepower_grid_export
+            name: Exporting to grid
+      - type: history-graph
+        entities:
+          - sensor.energizer_homepower_state_of_charge
+        title: Battery State of Charge last 24 hours
+        hours_to_show: 24
+      - type: energy-self-sufficiency-gauge
+        title: Self-sufficiency gauge
+  - type: grid
+    cards:
+      - type: heading
+        heading: Power dials - now
+        heading_style: title
+      - type: heading
+        icon: ''
+        heading: Solar PV generation - Scale 0 to 10,000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_solar_pv_power
+        needle: true
+        max: 10000
+        severity:
+          green: 4000
+          yellow: 1000
+          red: 0
+      - type: heading
+        icon: ''
+        heading: Battery state - Scale 0 to 100%
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_state_of_charge
+        name: Battery
+        min: 0
+        max: 100
+        needle: true
+        severity:
+          green: 50
+          yellow: 20
+          red: 0
+      - type: heading
+        icon: ''
+        heading: Battery power flow - Scale -9000 to 9000 Watts (-ve = charging)
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_battery_power
+        needle: true
+        max: 9000
+        severity:
+          green: -9000
+          yellow: 0
+          red: 4000
+        min: -9000
+      - type: heading
+        icon: ''
+        heading: Grid power flow - Scale -9000 to 9000 Watts (-ve = export)
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_grid_power
+        needle: true
+        max: 9000
+        severity:
+          green: -9000
+          yellow: 0
+          red: 4000
+        min: -9000
+      - type: heading
+        icon: ''
+        heading: House load - Scale 0 to 9000 Watts
+        heading_style: subtitle
+      - type: gauge
+        entity: sensor.energizer_homepower_house_load
+        needle: true
+        max: 9000
+        severity:
+          green: 0
+          yellow: 2000
+          red: 5000
+  - type: grid
+    cards:
+      - type: heading
+        heading: Today
+      - type: glance
+        title: Today
+        columns: 5
+        entities:
+          - entity: sensor.energizer_homepower_solar_generated_today
+            name: Solar
+          - entity: sensor.energizer_homepower_battery_charged_today
+            name: Charged
+          - entity: sensor.energizer_homepower_battery_discharged_today
+            name: Discharged
+          - entity: sensor.energizer_homepower_grid_imported_today
+            name: Imported
+          - entity: sensor.energizer_homepower_grid_exported_today
+            name: Exported
+      - type: statistics-graph
+        entities:
+          - entity: sensor.energizer_homepower_solar_generated_today
+            name: Solar
+          - entity: sensor.energizer_homepower_grid_imported_today
+            name: Imported
+          - entity: sensor.energizer_homepower_grid_exported_today
+            name: Exported
+        title: Daily energy (7 days)
+        days_to_show: 7
+        period: day
+        chart_type: bar
+        stat_types:
+          - change
+      - type: history-graph
+        title: Power (24 h)
+        hours_to_show: 24
+        entities:
+          - entity: sensor.energizer_homepower_solar_pv_power
+            name: Solar
+          - entity: sensor.energizer_homepower_house_load
+            name: House
+          - entity: sensor.energizer_homepower_battery_power
+            name: Battery (+ discharging)
+          - entity: sensor.energizer_homepower_grid_power
+            name: Grid (+ importing)
+      - type: heading
+        icon: mdi:fridge
+        heading: House load and Solar power
+        heading_style: title
+      - type: statistics-graph
+        entities:
+          - entity: sensor.energizer_homepower_house_load
+          - sensor.energizer_homepower_solar_pv_power
+        days_to_show: 1
+        period: 5minute
+        chart_type: line
+        stat_types:
+          - mean
+        grid_options:
+          columns: full
+  - type: grid
+    cards:
+      - type: heading
+        heading: Health
+      - type: entities
+        title: Battery health
+        entities:
+          - entity: sensor.energizer_homepower_battery_temperature
+            name: Battery temperature
+          - entity: sensor.energizer_homepower_inverter_temperature
+            name: Inverter temperature
+          - entity: sensor.energizer_homepower_pack_voltage
+            name: Pack voltage
+          - entity: sensor.energizer_homepower_battery_health
+            name: Battery health
+          - entity: sensor.energizer_homepower_ac_voltage
+            name: AC voltage
+          - entity: sensor.energizer_homepower_grid_frequency
+            name: Grid frequency
+          - entity: sensor.energizer_homepower_operating_mode
+            name: Operating mode
+          - entity: sensor.energizer_homepower_device_clock
+            name: Battery clock
+      - type: heading
+        heading: Control
+      - type: entities
+        title: Battery control
+        entities:
+          - entity: select.garage_energizer_homepower_application_mode
+            name: Mode
+          - entity: number.garage_energizer_homepower_maximum_state_of_charge
+            name: Maximum charge
+          - entity: number.garage_energizer_homepower_reserve_limit_off_grid
+            name: Reserve (off-grid)
+          - entity: number.garage_energizer_homepower_reserve_limit_on_grid
+            name: Reserve (on-grid)
+          - entity: number.garage_energizer_homepower_excess_generation_to_charge
+            name: Excess generation to charge
+          - entity: sensor.garage_energizer_homepower_schedule
+            name: Schedule
+      - type: markdown
+        title: Schedule
+        content: >
+          {% set e = 'sensor.garage_energizer_homepower_schedule' %}
+
+          {% set s = state_attr(e, 'schedule') or {} %}
+
+          {% set names = {'grid_charge': 'Grid charge', 'pv_charge': 'Solar
+          charge', 'discharge': 'Discharge'} %}
+
+          **{{ states(e) }}**{% if state_attr(e, 'active') == false %} · *not
+          active (the battery isn't in Manual mode)*{% endif %}
+
+
+          {% if s -%}
+
+          | Day | Type | Window | Power |
+
+          |---|---|---|---|
+
+          {% for day in ['mon','tue','wed','thu','fri','sat','sun'] if day in s
+          -%}
+
+          {% for cat, wins in s[day].items() -%}
+
+          {% for w in wins -%}
+
+          | {{ day | capitalize }} | {{ names[cat] }} | {{ w.start }}–{{ w.end
+          }} | {{ w.power }}% |
+
+          {% endfor %}{% endfor %}{% endfor %}
+
+          {%- else -%}
+
+          No windows set.
+
+          {%- endif %}
+dense_section_placement: true
+cards: []
+show_icon_and_title: true
