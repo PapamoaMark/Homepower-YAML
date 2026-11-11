@@ -13,7 +13,7 @@ sections:
         entities:
           - sensor.energizer_homepower_solar_generated_today
         title: KWh Solar generated
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -22,7 +22,7 @@ sections:
         entities:
           - sensor.energizer_homepower_solar_pv_power
         title: Generated - mean for month
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -31,7 +31,7 @@ sections:
         entities:
           - sensor.energizer_homepower_grid_exported_today
         title: KWh Grid Exported
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -40,7 +40,7 @@ sections:
         entities:
           - sensor.energizer_homepower_grid_export
         title: Export - mean for month
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -49,7 +49,7 @@ sections:
         entities:
           - sensor.energizer_homepower_grid_imported_today
         title: KWh Grid Imported
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -58,7 +58,7 @@ sections:
         entities:
           - sensor.energizer_homepower_grid_import
         title: Import - mean for month
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
@@ -67,7 +67,7 @@ sections:
         entities:
           - sensor.energizer_homepower_house_load
         title: Mean house load for month
-        days_to_show: 30
+        days_to_show: 62
         period: month
         chart_type: bar
         stat_types:
